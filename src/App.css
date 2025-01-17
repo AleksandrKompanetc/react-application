@@ -77,3 +77,8 @@ li.active {
 li.active > .content {
   display: block;
 }
+
+header {
+  display: flex;
+  justify-content: space-between;
+}

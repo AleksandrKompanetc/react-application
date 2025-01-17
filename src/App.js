@@ -27,6 +27,7 @@ export default function App() {
         <h3>Result</h3>
         <span>There will be time here!</span>
       </header>
+      <hr />
       <h1>Hello React!</h1>
     </div>
   )
