@@ -71,7 +71,7 @@ li > .content {
 }
 
 li.active {
-  background-color: rgb(255, 255, 91);
+  background-color: rgb(101, 179, 238);
 }
 
 li.active > .content {
