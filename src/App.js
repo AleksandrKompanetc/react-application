@@ -8,6 +8,10 @@ import './App.css';
 //   {title: 'JavaScript', text: 'Learn JavaScript and shall be know FrontEnd!'}
 // ]
 
+function WayToTeach() {
+  return ()
+}
+
 export default function App() {
   // const [active, setActive] = useState(null);
   return (
