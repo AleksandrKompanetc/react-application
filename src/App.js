@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
+import Header from './components/Header';
 import './App.css';
 
 // const content = [
@@ -23,12 +24,11 @@ export default function App() {
     //   ))}
     // </ul>
     <div>
-      <header>
-        <h3>Result</h3>
-        <span>There will be time here!</span>
-      </header>
+      <Header />
       <hr />
-      <h1>Hello React!</h1>
+      <main>
+        <h1>Hello React!</h1>
+      </main>
     </div>
   )
 }
