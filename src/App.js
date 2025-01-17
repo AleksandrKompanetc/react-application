@@ -8,6 +8,19 @@ const content = [
 ]
 
 export default function App() {
-  
-  return ()
+  const [active, setActive] = useState(null);
+  return (
+    <ul>
+      {content.map((item, index) => (
+        <li 
+          key={item.title}
+          onClick={() => setActive(index)}
+          className={index === active ? 'active' : null}
+        >
+          <h3>{item.title}</h3>
+          <div className='content'>{item.text}</div>
+        </li>
+      ))}
+    </ul>
+  )
 }
