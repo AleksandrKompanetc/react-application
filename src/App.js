@@ -3,6 +3,7 @@ import Header from './components/Header';
 import './App.css';
 import {ways} from './data';
 import WayToTeach from './components/WayToTeach';
+import Button from './components/Button';
 
 // const content = [
 //   {title: 'HTML', text: 'Learn HTML and will be nice!'},
@@ -40,6 +41,10 @@ export default function App() {
             <WayToTeach {...ways[2]} />
             <WayToTeach {...ways[3]} />
           </ul>
+        </section>
+        <section>
+          <h3>Чем мы отличаемся от других?</h3>
+          <Button />
         </section>
       </main>
     </div>
