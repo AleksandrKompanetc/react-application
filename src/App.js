@@ -12,6 +12,9 @@ import Button from './components/Button/Button';
 // ]
 
 export default function App() {
+  function handleClick() {
+
+  }
   // const [active, setActive] = useState(null);
   return (
     // <ul>
@@ -44,9 +47,9 @@ export default function App() {
         </section>
         <section>
           <h3>Чем мы отличаемся от других?</h3>
-          <Button>Подход</Button>
-          <Button>Доступность</Button>
-          <Button>Концентрация</Button>
+          <Button onClick={handleClick}>Подход</Button>
+          <Button onClick={handleClick}>Доступность</Button>
+          <Button onClick={handleClick}>Концентрация</Button>
         </section>
       </main>
     </div>
