@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Header from './components/Header';
 import './App.css';
 import {ways} from './data';
 import WayToTeach from './components/WayToTeach';
-import Button from './components/Button';
+import Button from './components/Button/Button';
 
 // const content = [
 //   {title: 'HTML', text: 'Learn HTML and will be nice!'},
@@ -44,7 +44,9 @@ export default function App() {
         </section>
         <section>
           <h3>Чем мы отличаемся от других?</h3>
-          <Button />
+          <Button>Подход</Button>
+          <Button>Доступность</Button>
+          <Button>Концентрация</Button>
         </section>
       </main>
     </div>
