@@ -12,7 +12,9 @@ import Button from './components/Button/Button';
 // ]
 
 export default function App() {
-  function handleClick() {
+  let content = 'Press button';
+  function handleClick(type) {
+    content = type;
 
   }
   // const [active, setActive] = useState(null);
@@ -47,9 +49,11 @@ export default function App() {
         </section>
         <section>
           <h3>Чем мы отличаемся от других?</h3>
-          <Button onClick={handleClick}>Подход</Button>
-          <Button onClick={handleClick}>Доступность</Button>
-          <Button onClick={handleClick}>Концентрация</Button>
+          <Button onClick={() => handleClick('way')}>Подход</Button>
+          <Button onClick={() => handleClick('easy')}>Доступность</Button>
+          <Button onClick={() => handleClick('program')}>Концентрация</Button>
+
+          <p>{content}</p>
         </section>
       </main>
     </div>
