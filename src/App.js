@@ -1,23 +1,14 @@
 import React, { useState } from 'react';
 import Header from './components/Header';
 import './App.css';
+import {ways} from './data';
+import WayToTeach from './components/WayToTeach';
 
 // const content = [
 //   {title: 'HTML', text: 'Learn HTML and will be nice!'},
 //   {title: 'CSS', text: 'Learn CSS and will be nice!'},
 //   {title: 'JavaScript', text: 'Learn JavaScript and shall be know FrontEnd!'}
 // ]
-
-function WayToTeach() {
-  return (
-    <li>
-      <p>
-        <strong>Фильтрация информации и технологий </strong>
-        Из огромного количества информации и навыков в IT, вы получаете только то, что необходимо и работает.
-      </p>
-    </li>
-  )
-}
 
 export default function App() {
   // const [active, setActive] = useState(null);
@@ -40,10 +31,14 @@ export default function App() {
       <main>
         <section>
           <h3>Our education</h3>
+          {/* <ul>
+            {ways.map((way) => <WayToTeach title={way.title} description={way.description} />)}
+          </ul> */}
           <ul>
-            <WayToTeach />
-            <WayToTeach />
-            <WayToTeach />
+            <WayToTeach title={ways[0].title} description={ways[0].description} />
+            <WayToTeach {...ways[1]} />
+            <WayToTeach {...ways[2]} />
+            <WayToTeach {...ways[3]} />
           </ul>
         </section>
       </main>
