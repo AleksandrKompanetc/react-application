@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from './components/Header';
 import './App.css';
 import {ways} from './data';
@@ -12,9 +12,10 @@ import Button from './components/Button/Button';
 // ]
 
 export default function App() {
+  const [textButton, setTextButton] = useState('');
   let content = 'Press button';
   function handleClick(type) {
-    content = type;
+    setTextButton(type)
 
   }
   // const [active, setActive] = useState(null);
@@ -53,7 +54,7 @@ export default function App() {
           <Button onClick={() => handleClick('easy')}>Доступность</Button>
           <Button onClick={() => handleClick('program')}>Концентрация</Button>
 
-          <p>{content}</p>
+          <p>{textButton}</p>
         </section>
       </main>
     </div>
