@@ -4,6 +4,7 @@ import './App.css';
 import { ways, differences } from './data';
 import WayToTeach from './components/WayToTeach';
 import Button from './components/Button/Button';
+import TeachingSection from './components/TeachingSection';
 
 export default function App() {
   const [contentType, setContentType] = useState(null);
@@ -25,21 +26,7 @@ export default function App() {
       <Header />
       <hr />
       <main>
-        <section>
-          <h3>Our education</h3>
-          <ul>
-            {ways.map((way) => (
-              <WayToTeach key={way.title} {...way} />
-            ))}
-          </ul>
-          {/* <ul>
-            <WayToTeach title={ways[0].title} description={ways[0].description} />
-            <WayToTeach {...ways[1]} />
-            <WayToTeach {...ways[2]} />
-            <WayToTeach {...ways[3]} />
-            <WayToTeach {...ways[4]} />
-          </ul> */}
-        </section>
+        <TeachingSection />
         <section>
           <h3>Чем мы отличаемся от других?</h3>
           <Button 
