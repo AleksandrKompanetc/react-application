@@ -1,46 +1,32 @@
 import React, { useState } from 'react';
 import Header from './components/Header';
 import './App.css';
-import {ways, differences} from './data';
+import { ways, differences } from './data';
 import WayToTeach from './components/WayToTeach';
 import Button from './components/Button/Button';
 
-// const content = [
-//   {title: 'HTML', text: 'Learn HTML and will be nice!'},
-//   {title: 'CSS', text: 'Learn CSS and will be nice!'},
-//   {title: 'JavaScript', text: 'Learn JavaScript and shall be know FrontEnd!'}
-// ]
-
 export default function App() {
-  const [content, setContent] = useState('');
-  
-  function handleClick(type) {
-    setContent(type)
+  const [contentType, setContentType] = useState(null);
 
+  function handleClick(type) {
+    setContentType(type)
   }
-  // const [active, setActive] = useState(null);
+
+  let tabContent = null;
+
+  // if (contentType) {
+  //   tabContent = <p>{differences[contentType]}</p>
+  // } else {
+  //   tabContent = <p>Press button</p>
+  // }
+
   return (
-    // <ul>
-    //   {content.map((item, index) => (
-    //     <li 
-    //       key={item.title}
-    //       onClick={() => setActive(index)}
-    //       className={index === active ? 'active' : null}
-    //     >
-    //       <h3>{item.title}</h3>
-    //       <div className='content'>{item.text}</div>
-    //     </li>
-    //   ))}
-    // </ul>
     <div>
       <Header />
       <hr />
       <main>
         <section>
           <h3>Our education</h3>
-          {/* <ul>
-            {ways.map((way) => <WayToTeach title={way.title} description={way.description} />)}
-          </ul> */}
           <ul>
             <WayToTeach title={ways[0].title} description={ways[0].description} />
             <WayToTeach {...ways[1]} />
@@ -50,11 +36,32 @@ export default function App() {
         </section>
         <section>
           <h3>Чем мы отличаемся от других?</h3>
-          <Button onClick={() => handleClick('way')}>Подход</Button>
-          <Button onClick={() => handleClick('easy')}>Доступность</Button>
-          <Button onClick={() => handleClick('program')}>Концентрация</Button>
+          <Button 
+            isActive={contentType === 'way'} 
+            onClick={() => handleClick('way')}
+          >
+            Подход
+          </Button>
+          <Button 
+            isActive={contentType === 'easy'} 
+            onClick={() => handleClick('easy')}
+          >
+            Доступность
+          </Button>
+          <Button 
+            isActive={contentType === 'program'} 
+            onClick={() => handleClick('program')}
+          >
+            Концентрация
+          </Button>
 
-          <p>{differences[content]}</p>
+          {/* {contentType ? <p>{differences[contentType]}</p> : <p>Press button</p>} */}
+
+          {!contentType && <p>Press button</p>}
+          {contentType && <p>{differences[contentType]}</p>}
+
+          {tabContent}
+
         </section>
       </main>
     </div>
