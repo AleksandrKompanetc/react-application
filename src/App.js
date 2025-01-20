@@ -1,20 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Header from './components/Header';
 import './App.css';
-import { ways, differences } from './data';
-import WayToTeach from './components/WayToTeach';
-import Button from './components/Button/Button';
 import TeachingSection from './components/TeachingSection';
 import DifferencesSection from './components/DifferencesSection';
+import IntroSection from './components/IntroSection';
 
 export default function App() {
-  const [contentType, setContentType] = useState(null);
-
-  function handleClick(type) {
-    setContentType(type)
-  }
-
-  let tabContent = null;
 
   // if (contentType) {
   //   tabContent = <p>{differences[contentType]}</p>
@@ -23,13 +14,14 @@ export default function App() {
   // }
 
   return (
-    <div>
+    <>
       <Header />
       <hr />
       <main>
+        <IntroSection />
         <TeachingSection />
         <DifferencesSection />
       </main>
-    </div>
+    </>
   )
 }

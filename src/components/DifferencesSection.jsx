@@ -1,7 +1,16 @@
+import React, { useState } from "react";
 import { differences } from "../data";
 import Button from "./Button/Button";
 
 export default function DifferencesSection() {
+  const [contentType, setContentType] = useState(null);
+
+  let tabContent = null;
+
+  function handleClick(type) {
+    setContentType(type)
+  }
+
   return (
     <section>
       <h3>Чем мы отличаемся от других?</h3>
