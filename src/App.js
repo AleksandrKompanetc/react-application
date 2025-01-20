@@ -5,6 +5,7 @@ import { ways, differences } from './data';
 import WayToTeach from './components/WayToTeach';
 import Button from './components/Button/Button';
 import TeachingSection from './components/TeachingSection';
+import DifferencesSection from './components/DifferencesSection';
 
 export default function App() {
   const [contentType, setContentType] = useState(null);
@@ -27,35 +28,7 @@ export default function App() {
       <hr />
       <main>
         <TeachingSection />
-        <section>
-          <h3>Чем мы отличаемся от других?</h3>
-          <Button 
-            isActive={contentType === 'way'} 
-            onClick={() => handleClick('way')}
-          >
-            Подход
-          </Button>
-          <Button 
-            isActive={contentType === 'easy'} 
-            onClick={() => handleClick('easy')}
-          >
-            Доступность
-          </Button>
-          <Button 
-            isActive={contentType === 'program'} 
-            onClick={() => handleClick('program')}
-          >
-            Концентрация
-          </Button>
-
-          {/* {contentType ? <p>{differences[contentType]}</p> : <p>Press button</p>} */}
-
-          {!contentType && <p>Press button</p>}
-          {contentType && <p>{differences[contentType]}</p>}
-
-          {tabContent}
-
-        </section>
+        <DifferencesSection />
       </main>
     </div>
   )
