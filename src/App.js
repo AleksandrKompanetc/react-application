@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from './components/Header';
 import './App.css';
 import TeachingSection from './components/TeachingSection';
@@ -8,12 +8,12 @@ import TabsSection from './components/TabsSection';
 import FeedbackSection from './components/FeedbackSection';
 
 export default function App() {
-
   // if (contentType) {
   //   tabContent = <p>{differences[contentType]}</p>
   // } else {
   //   tabContent = <p>Press button</p>
   // }
+  const [tab, setTab] = useState('feedback');
 
   return (
     <>
@@ -21,12 +21,14 @@ export default function App() {
       <hr />
       <main>
         <IntroSection />
-        <TabsSection />
+        <TabsSection active={tab} onChange={(current) => setTab(current)} />
 
-        <TeachingSection />
-        <DifferencesSection />
+        {tab === 'main' && (<>
+          <TeachingSection />
+          <DifferencesSection />
+        </>)}
 
-        <FeedbackSection />
+        {tab === 'feedback' && <FeedbackSection />}
       </main>
     </>
   )
