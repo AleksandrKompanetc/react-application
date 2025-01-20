@@ -103,3 +103,7 @@ h3 {
 p {
   padding: 1rem 0;
 }
+
+.centered {
+  text-align: center;
+}

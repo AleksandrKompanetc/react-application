@@ -4,6 +4,7 @@ import './App.css';
 import TeachingSection from './components/TeachingSection';
 import DifferencesSection from './components/DifferencesSection';
 import IntroSection from './components/IntroSection';
+import TabsSection from './components/TabsSection';
 
 export default function App() {
 
@@ -19,6 +20,7 @@ export default function App() {
       <hr />
       <main>
         <IntroSection />
+        <TabsSection />
         <TeachingSection />
         <DifferencesSection />
       </main>
