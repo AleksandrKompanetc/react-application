@@ -5,6 +5,7 @@ import TeachingSection from './components/TeachingSection';
 import DifferencesSection from './components/DifferencesSection';
 import IntroSection from './components/IntroSection';
 import TabsSection from './components/TabsSection';
+import FeedbackSection from './components/FeedbackSection';
 
 export default function App() {
 
@@ -21,8 +22,11 @@ export default function App() {
       <main>
         <IntroSection />
         <TabsSection />
+
         <TeachingSection />
         <DifferencesSection />
+
+        <FeedbackSection />
       </main>
     </>
   )
