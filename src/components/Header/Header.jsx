@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import './Header.css';
 
 export default function Header() {
   const [now, setNow] = useState(new Date());
