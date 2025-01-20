@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Header from './components/Header';
 import './App.css';
-import {ways} from './data';
+import {ways, differences} from './data';
 import WayToTeach from './components/WayToTeach';
 import Button from './components/Button/Button';
 
@@ -12,10 +12,10 @@ import Button from './components/Button/Button';
 // ]
 
 export default function App() {
-  const [textButton, setTextButton] = useState('');
-  let content = 'Press button';
+  const [content, setContent] = useState('');
+  
   function handleClick(type) {
-    setTextButton(type)
+    setContent(type)
 
   }
   // const [active, setActive] = useState(null);
@@ -54,7 +54,7 @@ export default function App() {
           <Button onClick={() => handleClick('easy')}>Доступность</Button>
           <Button onClick={() => handleClick('program')}>Концентрация</Button>
 
-          <p>{textButton}</p>
+          <p>{differences[content]}</p>
         </section>
       </main>
     </div>
