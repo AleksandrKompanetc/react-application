@@ -1,11 +1,14 @@
 import './Button.css';
 
-export default function Button({children, onClick, isActive}) {
+export default function Button({children, isActive, ...props}) {
   // let classes = 'button';
   // if (isActive) classes += ' active';
 
   return (
-    <button className={isActive ? 'button active' : 'button'} onClick={onClick}>
+    <button 
+      {...props}
+      className={isActive ? 'button active' : 'button'} 
+    >
       {children}
     </button>
   )
