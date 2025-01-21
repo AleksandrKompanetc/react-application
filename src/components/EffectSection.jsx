@@ -8,8 +8,14 @@ export default function EffectSection() {
 
   fetch('https://jsonplaceholder.typicode.com/users')
 
-  useEffect(() => {
+  async function fetchUsers() {
+    const response = await fetch('https://jsonplaceholder.typicode.com/users')
+    const data = await response.json()
     
+  }
+
+  useEffect(() => {
+
   }, [])
 
   return (
