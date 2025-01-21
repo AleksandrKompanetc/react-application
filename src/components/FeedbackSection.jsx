@@ -2,17 +2,33 @@ import { useState } from "react";
 import Button from "./Button/Button";
 
 export default function FeedbackSection() {
-  const [name, setName] = useState('');
-  const [hasError, setHasError] = useState(true);
-  const [reason, setReason] = useState('help');
+  const [form, setForm] = useState({
+    name: '',
+    hasError: false,
+    reason: 'help',
+  });
+  // const [name, setName] = useState('');
+  // const [hasError, setHasError] = useState(true);
+  // const [reason, setReason] = useState('help');
 
   function handleNameChange(event) {
-    setName(event.target.value)
-    setHasError(event.target.value.trim() === 0)
+    setForm((prev) => ({
+      ...prev,
+      name: event.target.value,
+      hasError: event.target.value.trim().length === 0,
+    }))
+    // setForm({
+    //   name: event.target.value,
+    //   hasError: event.target.value.trim().length === 0,
+    //   reason: form.reason,
+    // })
+    
+    // setName(event.target.value)
+    // setHasError(event.target.value.trim().length === 0)
   }
 
   function toggleError() {
-    setHasError((prev) => !prev)
+    // setHasError((prev) => !prev)
     // setHasError(!hasError)
   }
 
@@ -28,27 +44,27 @@ export default function FeedbackSection() {
           type="text"  
           id="name" 
           className="control" 
-          value={name} 
+          value={form.name} 
           style={{
-            border: hasError ? '1px solid red' : null,
+            border: form.hasError ? '1px solid red' : null,
           }}
           onChange={handleNameChange} 
         />
 
         <label htmlFor="reason">Reason for contact</label>
-        <select id="reason" className="control" value={reason} onChange={(e) => setReason(e.target.value)}>
+        <select id="reason" className="control" value={form.reason} onChange={(event) => setForm(prev => ({...prev, reason: event.target.value}))}>
           <option value="error">Error</option>
           <option value="help">Need help</option>
           <option value="suggest">Suggest</option>
         </select>
 
         <pre>
-          Name: {name}
+          Name: {form.name}
           <br />
-          Reason: {reason}
+          Reason: {form.reason}
         </pre>
 
-        <Button disabled={hasError} isActive={!hasError} className='button'>Send</Button>
+        <Button disabled={form.hasError} isActive={!form.hasError} className='button'>Send</Button>
       </form>
     </section>
   )
