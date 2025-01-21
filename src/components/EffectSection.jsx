@@ -1,19 +1,22 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Modal from "./Modal/Modal";
 import Button from "./Button/Button";
 
 export default function EffectSection() {
   const [modal, setModal] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  function openModal() {
-    setModal(true)
-  }
+  fetch('https://jsonplaceholder.typicode.com/users')
+
+  useEffect(() => {
+    
+  }, [])
 
   return (
     <section>
       <h3>Effects</h3>
 
-      <Button onClick={openModal}>Open Info</Button>
+      <Button onClick={() => setModal(true)}>Open Info</Button>
 
       <Modal open={modal}>
         <h3>Hello from modal</h3>
