@@ -32,6 +32,8 @@ export default function EffectSection() {
         </p>
         <Button onClick={() => setModal(false)}>Close</Button>
       </Modal>
+
+      {loading && <p>Loading...</p>}
     </section>
   )
 }
