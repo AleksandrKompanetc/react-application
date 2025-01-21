@@ -5,17 +5,18 @@ import Button from "./Button/Button";
 export default function EffectSection() {
   const [modal, setModal] = useState(false);
   const [loading, setLoading] = useState(false);
-
-  fetch('https://jsonplaceholder.typicode.com/users')
-
-  async function fetchUsers() {
-    const response = await fetch('https://jsonplaceholder.typicode.com/users')
-    const data = await response.json()
-    
-  }
+  const [users, setUsers] = useState([]);
 
   useEffect(() => {
+    async function fetchUsers() {
+      setLoading(true)
+      const response = await fetch('https://jsonplaceholder.typicode.com/users')
+      const users = await response.json()
+      setUsers(users)
+      setLoading(false)
+    }
 
+    fetchUsers();
   }, [])
 
   return (
@@ -26,7 +27,7 @@ export default function EffectSection() {
 
       <Modal open={modal}>
         <h3>Hello from modal</h3>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facilis modi qui quam? 
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facilis modi qui quam?
           Quibusdam veritatis nulla eligendi quo possimus autem consectetur veniam quis.
         </p>
         <Button onClick={() => setModal(false)}>Close</Button>
