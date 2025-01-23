@@ -7,7 +7,7 @@ export default function EffectSection() {
   const [loading, setLoading] = useState(false);
   const [users, setUsers] = useState([]);
 
-  const fetchUsers = useCallback( async () => {
+  const fetchUsers = useCallback(async () => {
     setLoading(true)
     const response = await fetch('https://jsonplaceholder.typicode.com/users')
     const users = await response.json()
@@ -35,10 +35,15 @@ export default function EffectSection() {
 
       {loading && <p>Loading...</p>}
 
-      {!loading && <ul>
-        {users.map((user) => (
-          <li key={user.id}>{user.name}</li>))}
-      </ul>}
+      {!loading && (
+        <>
+          <input type="text" className="control" />
+          <ul>
+            {users.map((user) => (
+              <li key={user.id}>{user.name}</li>))}
+          </ul>
+        </>
+      )}
     </section>
   )
 }
