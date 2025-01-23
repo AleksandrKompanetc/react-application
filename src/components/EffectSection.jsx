@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import Modal from "./Modal/Modal";
 import Button from "./Button/Button";
 
@@ -7,23 +7,23 @@ export default function EffectSection() {
   const [loading, setLoading] = useState(false);
   const [users, setUsers] = useState([]);
 
-  async function fetchUsers() {
+  const fetchUsers = useCallback( async () => {
     setLoading(true)
     const response = await fetch('https://jsonplaceholder.typicode.com/users')
     const users = await response.json()
     setUsers(users)
     setLoading(false)
-  }
+  }, [])
 
   useEffect(() => {
-    fetchUsers();
-  }, [])
+    fetchUsers()
+  }, [fetchUsers])
 
   return (
     <section>
       <h3>Effects</h3>
 
-      <Button style={{marginBottom: '1rem'}} onClick={() => setModal(true)}>Open Info</Button>
+      <Button style={{ marginBottom: '1rem' }} onClick={() => setModal(true)}>Open Info</Button>
 
       <Modal open={modal}>
         <h3>Hello from modal</h3>
@@ -36,9 +36,9 @@ export default function EffectSection() {
       {loading && <p>Loading...</p>}
 
       {!loading && <ul>
-          {users.map((user) => (
-            <li key={user.id}>{user.name}</li>))}
-        </ul>}
+        {users.map((user) => (
+          <li key={user.id}>{user.name}</li>))}
+      </ul>}
     </section>
   )
 }
