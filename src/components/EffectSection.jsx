@@ -34,6 +34,10 @@ export default function EffectSection() {
       </Modal>
 
       {loading && <p>Loading...</p>}
+
+      {!loading && <ul>
+          {users.map((user) => <li></li>)}
+        </ul>}
     </section>
   )
 }
